@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean class="dao.DaoImpl" id="dao"></bean> <!-- creer une instance de la classe dao.DaoImpl et la nomer dao-->
+    <bean class="metier.MetierImpl" id="metier">
+        <!-- on doit avoir necesserement un constructeur par defaut c-à-d sans paramètre-->
+        <!-- ref="dao" fait reference à <bean class="dao.DaoImpl" id="dao"></bean> -->
+        <!-- name="Dao" signifie la propriété Dao qui se trouve dans la classe MetierImpl va prendre un objet ref="dao-->
+        <property name="Dao" ref="dao"></property>
+
+        <!-- si on a un consutructeur par paramètre-->
+        <constructor-arg ref="dao"></constructor-arg>
+    </bean>
+</beans>
