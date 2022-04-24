@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouveau etudiant</title>
+</head>
+<body>
+    <div layout:fragment="content1">
+        <div class="col-md-6 offset-3">
+        <form method="post" th:action="@{/admin/save}">
+           <div class="mb-3">
+               <label for="exampleNom" class="form-label">Nom</label>
+               <input type="text" class="form-control" id="exampleNom" name="nom" th:value="${etudiant.nom}">
+                <span th:errors="${etudiant.nom}"></span>
+           </div>
+            <div class="mb-3">
+                <label for="examplePrenom" class="form-label">Prenom</label>
+                <input type="text" class="form-control" id="examplePrenom" name="prenom" th:value="${etudiant.prenom}">
+                <span th:errors="${etudiant.prenom}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="exampleEmail" name="email" th:value="${etudiant.email}">
+                <span th:errors="${etudiant.email}"></span>
+            </div>
+           <div class="mb-3">
+               <label for="exampleDate" class="form-label">Date de naissance</label>
+               <input type="date" class="form-control" id="exampleDate" name="dateNaissance" th:value="${etudiant.dateNaissance}">
+               <span th:errors="${etudiant.dateNaissance}"></span>
+           </div>
+           <div class="mb-3 form-check">
+               <input type="checkbox" class="form-check-input" id="exampleCheck1" name="regle"th:checked="${etudiant.regle}">
+               <label class="form-check-label" for="exampleCheck1">En Regle</label>
+               <span th:errors="${etudiant.regle}"></span>
+           </div>
+           <div class="mb-3">
+               <label for="exampleScore" class="form-label">Genre</label>
+               <input type="text" class="form-control" id="exampleScore"  name="genre"th:value="${etudiant.genre}">
+               <span th:errors="${etudiant.genre}"></span>
+           </div>
+           <button type="submit" class="btn btn-primary">Enregistrer</button>
+       </form>
+       </div>
+    </div>
+</body>
+</html>
